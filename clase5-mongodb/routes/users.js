@@ -6,6 +6,8 @@ const userRouter = express.Router();
 
 const { validatorCreateItem } = require("../validators/users.js");
 
+const {authMiddleware} = require ("../middleware/session.js");
+
 userRouter.get('/', getItems);
 userRouter.get('/:email', getItem);
 userRouter.post('/', createItem);
@@ -15,6 +17,8 @@ userRouter.put('/:email', (req, res) => {
 });
 userRouter.delete('/:email', deleteItem);
 
+userRouter.post("/", authMiddleware , validatorCreateItem , createItem )
 //userRouter.post("/", validatorCreateItem, createItem);
+
 
 module.exports = userRouter;

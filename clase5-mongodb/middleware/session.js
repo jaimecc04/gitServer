@@ -19,9 +19,10 @@ const authMiddleware = async (req, res, next) => {
             handleHttpError(res, "ERROR_ID_TOKEN", 401)
             return
         }
-
-        const user = await usersModel.findById(dataToken._id).checkRole([admin])
+/*
+        const user = await usersModel.findById(dataToken._id).checkRole(["admin"])
         req.user = user // Inyecto al user en la peticion
+*/
         next()
     }catch(err){
         handleHttpError(res, "NOT_SESSION", 401)

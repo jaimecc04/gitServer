@@ -31,5 +31,6 @@ const getItem = async ({req, res}) => {
         {email});
     res.json(data)
 }
+    
 
 module.exports = {getItem, getItems, updateItem, createItem, deleteItem}
