@@ -1,4 +1,5 @@
 const { handleHttpError } = require("../utils/handleError")
+
 const checkRol = (roles) => (req, res, next) => { // Doble argumento
     try{
     const {user} = req
@@ -13,4 +14,5 @@ const checkRol = (roles) => (req, res, next) => { // Doble argumento
         handleHttpError(res, "ERROR_PERMISSIONS", 403)
     }
 }
+
 module.exports = checkRol
